@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "d0163f06-47fb-49f3-adda-68cd9c2c6722",
+		"name": "FDK - Testovanie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48416856"
+	},
+	"item": [
+		{
+			"name": "01 - Čítanie dát (GET)",
+			"item": [
+				{
+					"name": "Ziskanie nastenky",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(pm.collectionVariables.get(\"moje_meno\"));\r",
+									"});\r",
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.expect(pm.response.text().length).to.be.above(500);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{moje_cookie}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://fdk.cz/",
+							"protocol": "https",
+							"host": [
+								"fdk",
+								"cz"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Zoznam projektov",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Projekty\");\r",
+									"\r",
+									"});\r",
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.expect(pm.response.text().length).to.be.above(500);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{moje_cookie}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://fdk.cz/projekty/",
+							"protocol": "https",
+							"host": [
+								"fdk",
+								"cz"
+							],
+							"path": [
+								"projekty",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "02 - Zápis dát (POST)",
+			"item": []
+		},
+		{
+			"name": "Vytvorenie úlohy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "sk-SK,sk;q=0.9,cs-CZ;q=0.8,cs;q=0.7,en-US;q=0.6,en;q=0.5"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "max-age=0"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Origin",
+						"value": "https://fdk.cz"
+					},
+					{
+						"key": "Referer",
+						"value": "https://fdk.cz/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "document"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "navigate"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "Sec-Fetch-User",
+						"value": "?1"
+					},
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \"Not_A Brand\";v=\"99\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "Cookie",
+						"value": "",
+						"disabled": true
+					},
+					{
+						"key": "X-CSRFToken",
+						"value": "lh0G88trvRQGyHo39ExuP51kHR6xuRx4",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Postman post",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "„Test z Postmana - FUNGUJE TO“.",
+							"type": "text"
+						},
+						{
+							"key": "context",
+							"value": "personal",
+							"type": "text"
+						},
+						{
+							"key": "csrfmiddlewaretoken",
+							"value": "bXhMqxb0zYeKsZnhTVdZegyC8FU0vjblxmk8MaG0x2XQPhcYYboY2mP5YPescIAq",
+							"type": "text"
+						},
+						{
+							"key": "project_id",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://fdk.cz/spravce-ukolu/",
+					"protocol": "https",
+					"host": [
+						"fdk",
+						"cz"
+					],
+					"path": [
+						"spravce-ukolu",
+						""
+					]
+				},
+				"description": "Generated from cURL: curl 'https://fdk.cz/spravce-ukolu/' \\\r\n  -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \\\r\n  -H 'Accept-Language: sk-SK,sk;q=0.9,cs-CZ;q=0.8,cs;q=0.7,en-US;q=0.6,en;q=0.5' \\\r\n  -H 'Cache-Control: max-age=0' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'Content-Type: application/x-www-form-urlencoded' \\\r\n  -b 'csrftoken=lh0G88trvRQGyHo39ExuP51kHR6xuRx4; csrftoken=X7KI6Pmo5DrCWBoP92h76tYwUqzkECOq; fdk_sessions=8gqn90e7ghnxsq8g9mw8em8697m4dj0u' \\\r\n  -H 'Origin: https://fdk.cz' \\\r\n  -H 'Referer: https://fdk.cz/spravce-ukolu/' \\\r\n  -H 'Sec-Fetch-Dest: document' \\\r\n  -H 'Sec-Fetch-Mode: navigate' \\\r\n  -H 'Sec-Fetch-Site: same-origin' \\\r\n  -H 'Sec-Fetch-User: ?1' \\\r\n  -H 'Upgrade-Insecure-Requests: 1' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36' \\\r\n  -H 'sec-ch-ua: \"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \"Not_A Brand\";v=\"99\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  --data-raw 'csrfmiddlewaretoken=KIAqFhyEtwFGNAxCDOKNlOLmzIaSOOqGxFaYBWKSoZW8z1LhCGRKh7zIjYz2ig4W&title=Postman+post&description=Skuism+otestovat+fdk+metodou+post+cez+Postman.&context=personal&project_id='"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "moje_cookie",
+			"value": ""
+		},
+		{
+			"key": "moje_meno",
+			"value": ""
+		}
+	]
+}
